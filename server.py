@@ -22,3 +22,12 @@ def handle_receive(conn: socket.socket, stop_event: threading.Event):
         stop_event.set()
 
 
+def start_server():
+    """start TCP server and handle one client in full-duplex mode."""
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+
+    server_socket.bind((HOST, PORT))
+    server_socket.listen(1)
+
+    print
