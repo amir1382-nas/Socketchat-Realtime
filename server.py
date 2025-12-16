@@ -3,8 +3,8 @@
 
 import socket
 import threading
-from pyexpat.errors import messages
-
+#from config import HOST , PORT , BUFFER_SIZE
+#from utils import encode_message , decode_message
 
 def handle_receive(conn: socket.socket, stop_event: threading.Event):
     """thread dedicated to receiving messages from client."""
