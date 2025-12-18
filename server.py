@@ -1,6 +1,3 @@
-#Professinal Socket Chat Server (single client)
-#real-time, threaded, whit proper error handling and message framing.
-
 import socket
 import threading
 #from config import HOST , PORT , BUFFER_SIZE
