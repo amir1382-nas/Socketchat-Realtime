@@ -1,7 +1,7 @@
 import socket
 import threading
-#from congig import HOST , PORT , BUFFER_SIZE
-#from utils import encode_message, decode_message
+from config import HOST , PORT , BUFFER_SIZE
+from utils import encode_message, decode_message
 
 def handle_recive(sock: socket.socket, stop_event:threading.Event):
     """thread dedicated to receiving messages from server."""
@@ -42,10 +42,10 @@ def start_client():
     reciver.start()
 
     try:
-        while not stop_event.is_set()
+        while not stop_event.is_set():
             user_input = input()
 
-            if user_input.lower() in ("/quit" , "/exit")
+            if user_input.lower() in ("/quit" , "/exit"):
                 print("[CLIENT] closing connection...")
                 stop_event.set()
                 break

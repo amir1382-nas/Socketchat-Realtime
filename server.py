@@ -1,12 +1,12 @@
 import socket
 import threading
-#from config import HOST , PORT , BUFFER_SIZE
-#from utils import encode_message , decode_message
+from config import HOST , PORT , BUFFER_SIZE
+from utils import encode_message , decode_message
 
 def handle_receive(conn: socket.socket, stop_event: threading.Event):
     """thread dedicated to receiving messages from client."""
     try:
-        while not stop-stop_event.is_set():
+        while not stop_event.is_set():
             data = conn.recv(BUFFER_SIZE)
             stop_event.set()
             break
@@ -49,7 +49,7 @@ def start_server():
                 stop_event.set()
                 break
 
-            conn.sendall(encod_message(user_input))
+            conn.sendall(encode_message(user_input))
 
     finally:
         stop_event.set()
