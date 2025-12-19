@@ -37,7 +37,7 @@ def start_client():
     reciver = threading.Thread(
         target=handle_recive,
         args=(sock, stop_event),
-        domain=True
+        daemon=True
     )
     reciver.start()
 

@@ -8,8 +8,11 @@ def handle_receive(conn: socket.socket, stop_event: threading.Event):
     try:
         while not stop_event.is_set():
             data = conn.recv(BUFFER_SIZE)
-            stop_event.set()
-            break
+
+            if not data:
+                print("[SERVER] client disconnected.")
+                stop_event.set()
+                break
 
         messages = decode_message(data)
         print(f"[CLIENT] {messages}")
