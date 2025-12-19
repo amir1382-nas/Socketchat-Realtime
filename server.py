@@ -14,8 +14,8 @@ def handle_receive(conn: socket.socket, stop_event: threading.Event):
                 stop_event.set()
                 break
 
-        messages = decode_message(data)
-        print(f"[CLIENT] {messages}")
+            messages = decode_message(data)
+            print(f"[CLIENT] {messages}")
 
     except Exception as e:
         print(f"[SERVR] Receive Error: {e}")
